@@ -75,3 +75,7 @@ TARGET_LINK_LIBRARIES(upgrade_matches_file theia ${GFLAGS_LIBRARIES} ${GLOG_LIBR
 
 ADD_EXECUTABLE(upgrade_reconstruction_file upgrade_reconstruction_file.cc)
 TARGET_LINK_LIBRARIES(upgrade_reconstruction_file theia ${GFLAGS_LIBRARIES} ${GLOG_LIBRARIES})
+
+add_executable( simplereconstruction simplereconstruction.cpp )
+
+target_link_libraries( simplereconstruction theia ${GFLAGS_LIBRARIES} ${GLOG_LIBRARIES} )

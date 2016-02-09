@@ -296,24 +296,27 @@ void ReconstructionBuilder::InitializeReconstructionAndViewGraph(
   view_graph_.reset(std::move(view_graph));
 }
 
-bool ReconstructionBuilder::BuildReconstruction(
-    std::vector<Reconstruction*>* reconstructions) {
+bool ReconstructionBuilder::BuildReconstruction( std::vector<Reconstruction*>* reconstructions ) 
+{
   CHECK_GE(view_graph_->NumViews(), 2) << "At least 2 images must be provided "
                                           "in order to create a "
                                           "reconstruction.";
 
   // Build tracks if they were not explicitly specified.
-  if (reconstruction_->NumTracks() == 0) {
-    track_builder_->BuildTracks(reconstruction_.get());
+  if (reconstruction_->NumTracks() == 0) 
+  {
+    track_builder_->BuildTracks( reconstruction_.get() );
   }
 
   // Remove uncalibrated views from the reconstruction and view graph.
-  if (options_.only_calibrated_views) {
+  if (options_.only_calibrated_views) 
+  {
     LOG(INFO) << "Removing uncalibrated views.";
     RemoveUncalibratedViews();
   }
 
-  while (reconstruction_->NumViews() > 1) {
+  while (reconstruction_->NumViews() > 1) 
+  {
     LOG(INFO) << "Attempting to reconstruct " << reconstruction_->NumViews()
               << " images from " << view_graph_->NumEdges()
               << " two view matches.";
